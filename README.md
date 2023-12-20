@@ -42,6 +42,7 @@ Make sure you have the following installed:
    ```bash
    git clone https://github.com/Bonker009/TodoNodeNMongoDB.git
    cd TodoNodeNMongoDB
+   npm install or npm i
 2. **Create a .env file in your root directory**
   - PORT=**Your Port**
   - DATABASE_URL=**Your Connection String**
