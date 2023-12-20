@@ -51,7 +51,7 @@ Make sure you have the following installed:
 
    ```bash
    npm install or npm i
-4. **Start the Server**
-  ```bash
-  Copy code
-  npm start
+4. **Start the server**
+
+   ```bash
+   npm start
