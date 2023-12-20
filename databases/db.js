@@ -1,11 +1,10 @@
-import { connect, connection } from 'mongoose';
+import mongoose from 'mongoose';
 
-const mongoURI =
-  '  mongodb://127.0.0.1:27017/TodoList?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1';
+const mongoURI = process.env.DATABASE_URL;
 
-connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-const db = connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
   console.log('Connected to MongoDB');

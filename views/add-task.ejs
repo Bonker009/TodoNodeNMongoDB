@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Task</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 14px;
+      }
+
+      input[type='checkbox'] {
+        margin-top: 6px;
+      }
+
+      select {
+        height: 36px;
+      }
+
+      input[type='submit'] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      input[type='submit']:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/tasks" method="POST">
+      <!-- Task Title -->
+      <label for="taskTitle">Task Title:</label>
+      <input type="text" id="taskTitle" name="title" required />
+
+      <!-- Task Description -->
+      <label for="taskDescription">Task Description:</label>
+      <textarea id="taskDescription" name="description" required> </textarea>
+
+      <!-- Completed -->
+      <label for="completed">Completed:</label>
+      <input
+        type="checkbox"
+        id="completed"
+        name="completed"
+        value="false"
+        checked
+      />
+
+      <!-- Due Date -->
+      <label for="dueDate">Due Date:</label>
+      <input type="date" id="dueDate" name="dueDate" required />
+
+      <!-- Priority -->
+      <label for="priority">Priority:</label>
+      <select id="priority" name="priority">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+
+      <!-- Hidden Field for JavaScript Data -->
+      <input
+        type="hidden"
+        id="hiddenField"
+        name="hiddenField"
+        value="some_hidden_value"
+      />
+
+      <!-- Submit Button -->
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
