@@ -40,8 +40,8 @@ Make sure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/todo-list-node-mongodb.git
-   cd todo-list-node-mongodb
+   git clone https://github.com/Bonker009/TodoNodeNMongoDB.git
+   cd TodoNodeNMongoDB
 2. **Create a .env file in your root directory**
   - PORT=**Your Port**
   - DATABASE_URL=**Your Connection String**
