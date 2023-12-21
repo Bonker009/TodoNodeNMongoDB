@@ -46,17 +46,34 @@ app.post('/tasks', async (req, res) => {
     console.error(error);
   }
 });
-// app.post('/update-task/:taskId', async (req, res) => {
-//   const taskId = req.params.taskId;
-//   try {
-//     const deleteTask = await Task.deleteOne({ _id: taskId },{$set:{
-//         title:req.
-//     }});
-//   } catch (error) {
-//     console.error(error);
-//   }
-//   console.log(taskId);
-// });
+app.get('/tasks/show/:taskId', async (req, res) => {
+  const taskId = req.params.taskId;
+
+  try {
+    // Find the specific task by ID
+    const foundTask = await Task.findById(taskId);
+
+    if (!foundTask) {
+      // Handle the case where the task with the specified ID is not found
+      return res.status(404).send('Task not found');
+    }
+
+    // Find the latest task based on createdAt field
+    const latestTask = await Task.find()
+      .sort({ createdAt: -1 })
+      .lean()
+      .exec();
+
+      console.log(latestTask)
+    res.render('show', { task: foundTask, latestTask });
+    console.log(foundTask);
+  } catch (error) {
+    console.error(error);
+    // Handle other potential errors, e.g., database connection issues
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 app.get('/add-task', (req, res) => {
   res.render('add-task');
 });
